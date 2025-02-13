@@ -51,10 +51,6 @@ variable "hub_config" {
   description = "Configuration for the Virtual Hub"
 
   validation {
-    condition     = contains(["Basic", "Standard"], var.hub_config.sku)
-    error_message = "The hub_sku must be either 'Basic', 'Standard' or \"\"."
-  }
-  validation {
     condition     = contains(local.hub_routing_preferences, var.hub_config.routing_preference)
     error_message = format("The routing_preference must be either %s", join(", ", local.hub_routing_preferences))
   }
