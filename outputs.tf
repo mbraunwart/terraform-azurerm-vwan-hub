@@ -20,12 +20,12 @@ output "vpn_gateway_id" {
 
 output "virtual_wan_name" {
   description = "The name of the Virtual WAN resource."
-  value       = azurerm_virtual_wan.wan.name
+  value       = azurerm_virtual_wan.wan.0.name
 }
 
 output "virtual_wan_type" {
   description = "The type of the Virtual WAN (Basic or Standard)."
-  value       = azurerm_virtual_wan.wan.type
+  value       = azurerm_virtual_wan.wan.0.type
 }
 
 output "hub_address_prefix" {
