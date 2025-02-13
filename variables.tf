@@ -40,13 +40,13 @@ variable "hub_config" {
     address_space                  = string
     sku                            = string
     routing_preference             = optional(string, "ExpressRoute")
-    allow_branch_to_branch_traffic = bool
-    disable_vpn_encryption         = bool
+    allow_branch_to_branch_traffic = optional(bool)
+    disable_vpn_encryption         = optional(bool)
     office365_category             = optional(string, "Optimize")
-    routes = list(object({
+    routes = optional(list(object({
       address_prefixes    = list(string)
       next_hop_ip_address = string
-    }))
+    })), [])
   })
   description = "Configuration for the Virtual Hub"
 
@@ -71,10 +71,10 @@ variable "vpn_config" {
       name       = string
       scale_unit = number
     })
-    sites = list(object({
+    sites = optional(list(object({
       name          = string
       address_cidrs = list(string)
-    }))
+    })), [])
   })
   description = "Configuration for VPN Gateway and Sites"
   default = {
