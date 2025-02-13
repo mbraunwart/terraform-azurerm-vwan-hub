@@ -14,7 +14,6 @@ resource "azurerm_virtual_hub" "hub" {
   location               = var.location
   virtual_wan_id         = azurerm_virtual_wan.wan.id
   address_prefix         = var.hub_config.address_space
-  sku                    = try(var.hub_config.sku, null)
   hub_routing_preference = var.hub_config.routing_preference
   tags                   = var.tags
 

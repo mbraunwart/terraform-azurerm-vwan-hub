@@ -38,7 +38,6 @@ variable "hub_config" {
   type = object({
     name                           = string
     address_space                  = string
-    sku                            = optional(string, "")
     routing_preference             = optional(string, "ExpressRoute")
     allow_branch_to_branch_traffic = optional(bool)
     disable_vpn_encryption         = optional(bool)
